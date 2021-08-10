@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"apm32_flash_bm\startup_stm32f103xe.o"
+"apm32_flash_bm\main.o"
+"apm32_flash_bm\gpio.o"
+"apm32_flash_bm\stm32f1xx_it.o"
+"apm32_flash_bm\stm32f1xx_hal_msp.o"
+"apm32_flash_bm\stm32f1xx_hal_timebase_tim.o"
+"apm32_flash_bm\stm32f1xx_hal_gpio_ex.o"
+"apm32_flash_bm\stm32f1xx_hal_tim.o"
+"apm32_flash_bm\stm32f1xx_hal_tim_ex.o"
+"apm32_flash_bm\stm32f1xx_hal.o"
+"apm32_flash_bm\stm32f1xx_hal_rcc.o"
+"apm32_flash_bm\stm32f1xx_hal_rcc_ex.o"
+"apm32_flash_bm\stm32f1xx_hal_gpio.o"
+"apm32_flash_bm\stm32f1xx_hal_dma.o"
+"apm32_flash_bm\stm32f1xx_hal_cortex.o"
+"apm32_flash_bm\stm32f1xx_hal_pwr.o"
+"apm32_flash_bm\stm32f1xx_hal_flash.o"
+"apm32_flash_bm\stm32f1xx_hal_flash_ex.o"
+"apm32_flash_bm\stm32f1xx_hal_exti.o"
+"apm32_flash_bm\system_stm32f1xx.o"
+"apm32_flash_bm\segger_rtt.o"
+"apm32_flash_bm\segger_rtt_printf.o"
+--strict --scatter "APM32_FLASH_BM\APM32_FLASH_BM.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "APM32_FLASH_BM.map" -o APM32_FLASH_BM\APM32_FLASH_BM.axf
