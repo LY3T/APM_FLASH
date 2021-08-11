@@ -25,8 +25,6 @@ apm32_flash_bm\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.
 apm32_flash_bm\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 apm32_flash_bm\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 apm32_flash_bm\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-apm32_flash_bm\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
-apm32_flash_bm\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 apm32_flash_bm\main.o: ../Core/Inc/gpio.h
 apm32_flash_bm\main.o: ..\RTT\SEGGER_RTT.h
 apm32_flash_bm\main.o: ..\RTT\SEGGER_RTT_Conf.h

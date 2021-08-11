@@ -4,7 +4,6 @@
 "apm32_flash_bm\gpio.o"
 "apm32_flash_bm\stm32f1xx_it.o"
 "apm32_flash_bm\stm32f1xx_hal_msp.o"
-"apm32_flash_bm\stm32f1xx_hal_timebase_tim.o"
 "apm32_flash_bm\stm32f1xx_hal_gpio_ex.o"
 "apm32_flash_bm\stm32f1xx_hal_tim.o"
 "apm32_flash_bm\stm32f1xx_hal_tim_ex.o"

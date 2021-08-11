@@ -36,7 +36,7 @@
 #define FLASH_MAX_PAGE 256
 #define	FLASH_BASE_ADDR 0X08000000
 #define	FLASH_ERASE_ADDR 0X08003000//可能不是最终的擦除地址
-#define FLASH_PAGE_SIZE 2048
+//#define FLASH_PAGE_SIZE 2048
 #define FLASH_ERASE_PAGE (FLASH_MAX_PAGE-((FLASH_ERASE_ADDR-FLASH_BASE_ADDR)/FLASH_PAGE_SIZE))//缺乏大小检测,小于2048怎么处理
 #define FLASH_WRITE_VUALE 0x00000001
 
@@ -66,6 +66,10 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+//uint32_t HAL_GetTick(void)
+//{
+//  return uwTick;
+//}
 
 /* USER CODE END 0 */
 
@@ -140,13 +144,15 @@ int main(void)
 		write_num = (FLASH_ERASE_PAGE*FLASH_PAGE_SIZE)/4;
 		for(i = 0,write_adder = FLASH_ERASE_ADDR;i<write_num;i++)
 		{
+			__HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_PGERR|FLASH_FLAG_WRPERR|FLASH_SR_EOP);
 			if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,write_adder,write_value++) != HAL_OK)
 			{
 				SEGGER_RTT_printf(0,"adder:%x write error value:%x\r\n",write_adder,*(__IO uint32_t*)write_adder);
 				break;
 			}
-			else
-				SEGGER_RTT_printf(0,"adder:%x write:%x\r\n",write_adder,*(__IO uint32_t*)write_adder);
+			
+//			else
+//				SEGGER_RTT_printf(0,"adder:%x write:%x\r\n",write_adder,*(__IO uint32_t*)write_adder);
 //			FLASH_WaitForLastOperation((uint32_t)FLASH_TIMEOUT_VALUE);
 			write_adder += 4;//地址增加4
 
@@ -243,32 +249,8 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-//uint32_t HAL_GetTick(void)
-//{
-//  return uwTick;
-//}
+
 /* USER CODE END 4 */
-
-/**
-  * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM7 interrupt took place, inside
-  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
-  * a global variable "uwTick" used as application time base.
-  * @param  htim : TIM handle
-  * @retval None
-  */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-  /* USER CODE BEGIN Callback 0 */
-
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM7) {
-    HAL_IncTick();
-  }
-  /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
-}
 
 /**
   * @brief  This function is executed in case of error occurrence.
