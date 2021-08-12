@@ -1,0 +1,1 @@
+apm32_flash_os_ac6\startup_stm32f103xe.o: startup_stm32f103xe.s
